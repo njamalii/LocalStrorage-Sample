@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage</title>
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap-reboot.rtl.min.css">
+</head>
+
+<body>
+    <table class="table table-striped">
+        <tr>
+            <td class="border w-50 fw-bold">Product Name:</td>
+            <td class="border w-50"><input type="text" id="productName" class="w-100" placeholder="Enter product name">
+            </td>
+        </tr>
+        <tr>
+            <td class="border w-50 fw-bold">Product Price:</td>
+            <td class="border w-50"><input type="text" id="ProductPrice" class="w-100"
+                    placeholder="Enter product price"></td>
+        </tr>
+        <tr>
+            <td class="border w-50 fw-bold">Product Model:</td>
+            <td class="border w-50"><input type="text" id="productModel" class="w-100"
+                    placeholder="Enter product model"></td>
+        </tr>
+        <tr>
+            <td class="border w-50 fw-bold">Product Discount:</td>
+            <td class="border w-50"><input type="text" id="productDiscount" class="w-100"
+                    placeholder="Enter product discount"></td>
+        </tr>
+        <tr>
+            <td class="border w-50 fw-bold">Product Information:</td>
+            <td class="border w-50"><textarea name="" id="productInfo" class="w-100"
+                    placeholder="Enter product information ..."></textarea></td>
+        </tr>
+        <tr>
+            <td class="border w-50 fw-bold">Product Rating:</td>
+            <td class="border w-50"><input type="number" id="productRate" class="w-100"
+                    placeholder="Enter product rating" max="5" min="0"></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="border text-center"><button class="btn-success rounded w-75"
+                    onclick="createProduct()">Click</button></td>
+        </tr>
+    </table>
+    <script>
+        function createProduct() {
+            var product = {
+                "productname": document.getElementById("productName").value,
+                "productprice": document.getElementById("ProductPrice").value,
+                "productmodel": document.getElementById("productModel").value,
+                "productdiscount": document.getElementById("productDiscount").value,
+                "productinfo": document.getElementById("productInfo").value,
+                "productRating": document.getElementById("productRate").value
+            }
+            var str = JSON.stringify(product);
+            localStorage.setItem("product", str);
+            console.log(str);
+        }
+
+    </script>
+</body>
+
+</html>
